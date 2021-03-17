@@ -2,6 +2,8 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 app.use(express.json())
+const Users = require('./routes/user')
+const Product = require('./routes/product')
 
 // CRUD = create - read - update - delete
 // Method = port - get - put - delete
@@ -16,6 +18,8 @@ mongoose.connect("mongodb+srv://San:151020@cluster0.kvzmg.mongodb.net/Tutorial?r
     console.log("succeed")
 
 })
+app.use('/auth',Users)
+app.use('/product',Product)
 
 var students = ['trung', 'hung']
 
